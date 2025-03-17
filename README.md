@@ -28,4 +28,4 @@ The data used for a recent modelling applications was also included (Wu et al., 
 
 The folder data_DMC contains the GIS setting of the catchment Demnitz Mill Creek, DMC, Germany, the climatic inputs, and the observations of discharge, in-stream isotopes, groundwater level, and in-stream nitrate concentrations.
 
->*Wu, S., Tetzlaff, D., Yang, X., Seuter, T., & Soulsby, C. Hydrological connectivity dominates NO3-N cycling in complex landscapes – insights from integration of isotopes and water quality modelling. Submitted*
+>*Wu, S., Tetzlaff, D., Yang, X., Sauter, T., & Soulsby, C. Hydrological connectivity dominates NO3-N cycling in complex landscapes – insights from integration of isotopes and water quality modelling. Submitted*
