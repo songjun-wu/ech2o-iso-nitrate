@@ -1,0 +1,7 @@
+number_of_rotation_type	4																																	
+rotation_id	briefName	ncrops	crop1	crop2																														
+1	crop	1	1
+2	forest_broadleaf	1	3																															
+3	forest_conifer	1	4																															
+4	peatland	1	5																															
+

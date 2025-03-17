@@ -1,0 +1,7 @@
+number_of_crops	5																														
+crop_name	Crop_id	frtn1	frtday1	frtdown1	frtn2	frtday2	frtdown2	mann1	manday1	mandown1	mann2	manday2	mandown2	manfIN	frtperiod	resn	resday	resdown	resfast	resperiod	up1	up2	up3	uppsoil	deepsoil	plantd	emergd	havestd	catch_crop	ccplantd	cchavestd
+crop_summer	1	100	110	0.4	0	0	0	15	110	0.3	0	0	0	0.5	60	55	260	0.3	0.8	1	11	0.01	0.08	0.3	0.05	85	0	220	0	0	0
+crop_winter	2	80	90	0.4	80	120	0.4	0	100	0.4	0	0	0	0.5	60	73	242	0.4	0.6	1	19.8	0.00002	0.07	0.3	0.05	281	0	242	0	0	0
+forest_broadleaf	3	0	130	0	0	0	0	0	130	0	0	130	1	0.5	60	25	290	0.3	0.1	1	2.5	1	0.018	0.5	0.5	55	0	280	0	0	0
+forest_conifer	4	10	130	0	0	0	0	0	130	0	0	130	1	0.5	60	15	290	0.3	0.1	1	3	0.8	0.018	0.5	0.5	55	0	280	0	0	0
+peatland	5	40	100	0.2	0	0	0	30	120	0.08	8.6	220	0.1	0.5	60	59	290	0.3	0.8	1	10	0.8	0.03	0.4	0.001	120	0	350	0	0	0

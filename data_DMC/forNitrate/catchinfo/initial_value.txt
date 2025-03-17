@@ -1,0 +1,7 @@
+CategoryType	1		
+nClassification	4		
+idclass	init_fastN	init_humusN	hnhalf
+1	2	80.33	0.15
+2	0.2	80.33	1.65
+3	0.2	80.33	1.65
+4	1	80.33	0.4

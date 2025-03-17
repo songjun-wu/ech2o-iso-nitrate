@@ -1,0 +1,90 @@
+module load anaconda3
+module load python-2.7.16
+module load pcraster-4.1.0
+# mv base_500m.map base.map
+asc2map -a --clone base.map ASCII/dem.asc DEM.map
+# pcrcalc ldd.map = 'ldd(ASCII/ldd.asc)'
+asc2map -a --clone base.map ASCII/chanmask.asc chanmask.map
+asc2map -a --clone base.map ASCII/chanmask_wetland.asc chanmask_wetland.map
+asc2map -a --clone base.map ASCII/chanwidth.asc chanwidth.map
+asc2map -a --clone base.map ASCII/p_0.asc p_0.map
+asc2map -a --clone base.map ASCII/p_1.asc p_1.map
+asc2map -a --clone base.map ASCII/p_2.asc p_2.map
+asc2map -a --clone base.map ASCII/p_3.asc p_3.map
+asc2map -a --clone base.map ASCII/p_4.asc p_4.map
+asc2map -a --clone base.map ASCII/unit_BE.asc unit.soil_BE.map
+asc2map -a --clone base.map ASCII/unit_GL.asc unit.soil_GL.map
+asc2map -a --clone base.map ASCII/unit_PE.asc unit.soil_PE.map
+asc2map -a --clone base.map ASCII/unit_PZ.asc unit.soil_PZ.map
+asc2map -a --clone base.map ASCII/Climzones_500m.asc Climzones_500m.map
+cp Climzones_500m.map ../../Climate/Climzones_500m.map 
+asc2map -a --clone base.map ASCII/isohyet_500m.asc isohyet_500m.map
+cp isohyet_500m.map ../../Climate/isohyet_500m.map 
+# channel parameters
+pcrcalc chanparam.map = 'chanmask.map * 0.02'
+pcrcalc chanmask_NaN.map = 'chanmask.map * 1 '
+pcrcalc chanmanningn.map = 'chanmask.map * 0.02'
+pcrcalc streamflow.map = 'unit.map * 0'
+pcrcalc unit.map = 'DEM.map/DEM.map'
+pcrcalc albedo.map = 'unit.map * 0.3'
+pcrcalc BClambda.map = 'unit.map *  5.3'
+pcrcalc dampdepth.map = 'unit.map * 2'
+pcrcalc emissivity.map = 'unit.map * 0.98'
+pcrcalc soildepth.map = 'unit.map * 1'
+pcrcalc Keff.map = '1 / (soildepth.map * 36000)'
+pcrcalc slope.map = 'slope(DEM.map)'
+pcrcalc KvKh.map = 'unit.map * 0.4'
+pcrcalc kKsat.map = 'unit.map * 5'
+pcrcalc kporos.map = 'unit.map * 5'
+pcrcalc leakance.map = 'unit.map * 0.0'
+pcrcalc poros0.map = 'unit.map * 0.4'
+pcrcalc psi_ae.map = 'unit.map * 0.2'
+pcrcalc randrough.map = 'unit.map * 0.05'
+pcrcalc snowmeltCoeff.map = 'unit.map * 4.1e-8'
+pcrcalc soilheatcap.map = 'unit.map * 2.205e6'
+pcrcalc soilthermalK.map = 'unit.map * 0.2'
+pcrcalc soiltemp.map = 'unit.map * 10'
+pcrcalc soildepth.L1.map = 'unit.map * 0.2'
+pcrcalc soildepth.L2.map = 'unit.map * 0.3'
+pcrcalc swe.map = 'unit.map * 0'
+pcrcalc SWC.L1.map = 'poros0.map * 0.5'
+pcrcalc SWC.L2.map = 'poros0.map * 0.5'
+pcrcalc SWC.L3.map = 'poros0.map * 0.5'
+pcrcalc temp_damp.map = 'unit.map * 10'
+pcrcalc theta_r.map = 'unit.map * 0.05'
+pcrcalc water_temp.map = 'unit.map * 5'
+pcrcalc Wc.map = 'unit.map * 0.7'
+pcrcalc Wp.map = 'unit.map * 9'
+# vegetation parameters
+pcrcalc patches.map = 'unit.map'
+pcrcalc age_0.map = 'unit.map * 1'
+pcrcalc age_1.map = 'unit.map * 20'
+pcrcalc age_2.map = 'unit.map * 25'
+pcrcalc age_3.map = 'unit.map * 5'
+pcrcalc age_4.map = 'unit.map * 5'
+pcrcalc bas_0.map = 'unit.map * 0.005'
+pcrcalc bas_1.map = 'unit.map * 0.005'
+pcrcalc bas_2.map = 'unit.map * 0.005'
+pcrcalc bas_3.map = 'unit.map * 0.005'
+pcrcalc bas_4.map = 'unit.map * 0.005'
+pcrcalc hgt_0.map = 'unit.map * 1.5'
+pcrcalc hgt_1.map = 'unit.map * 20'
+pcrcalc hgt_2.map = 'unit.map * 30'
+pcrcalc hgt_3.map = 'unit.map * 1.5'
+pcrcalc hgt_4.map = 'unit.map * 5'
+pcrcalc lai_0.map = 'unit.map * 3'
+pcrcalc lai_1.map = 'unit.map * 5'
+pcrcalc lai_2.map = 'unit.map * 5'
+pcrcalc lai_3.map = 'unit.map * 3'
+pcrcalc lai_4.map = 'unit.map * 5'
+pcrcalc ntr_0.map = 'unit.map * 15'
+pcrcalc ntr_1.map = 'unit.map * 0.15'
+pcrcalc ntr_2.map = 'unit.map * 0.15'
+pcrcalc ntr_3.map = 'unit.map * 15'
+pcrcalc ntr_4.map = 'unit.map * 0.3'
+pcrcalc root_0.map = 'unit.map * 330'
+pcrcalc root_1.map = 'unit.map * 330'
+pcrcalc root_2.map = 'unit.map * 330'
+pcrcalc root_3.map = 'unit.map * 330'
+pcrcalc root_4.map = 'unit.map * 330'
+col2map --clone base.map probes.txt Tsmask.map
